@@ -15,7 +15,10 @@ function Usuario (nombre, nroCuenta, dineroEnCuenta){
     this.dineroEnCuenta = dineroEnCuenta;
 
     this.ingresarDinero = function(dineroIngresado){
-        dineroIngresado = parseInt(prompt("Ingrese la cantidad de dinero a despositar"))
+        let dineroIngresado = document.getElementById('dineroAIngresar')
+
+        
+
         if(dineroIngresado > 0){
             this.dineroEnCuenta += dineroIngresado;
         }
@@ -69,12 +72,15 @@ function menu(){
     }
 }
 
-let dineroIngresado
+// let dineroIngresado
 let importeAAbonar
 
 function saludar(saludo){
     alert(saludo + " nuestra pagina!")
 }
+
+let dineroDisponible = document.getElementById('dineroDisponible')
+dineroDisponible.innerText = "Mi dinero"
 
 function saldoTotal(usuario){
     alert("Su saldo total es de " + usuario.dineroEnCuenta + " pesos")
@@ -104,6 +110,9 @@ function operacion(){
         usuarioBuscado.ingresarDinero();
         saldoTotal(usuarioBuscado)
 
+    }
+    else{
+        alert("El usuario ingresado no se encuentra registrado")
     }
 
 }
